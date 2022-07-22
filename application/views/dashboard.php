@@ -115,6 +115,15 @@ Hello, <?php echo ucfirst($firstname)?>
 <a><li>3.4_Active Products Count (not belongs to any user) :  <?php echo $activeUnattachedProducts;?></li></a>
 <a><li>3.5_Amount of active attached Products:  <?php echo $activeAttachedProductsAmount;?></li></a>
 <a><li>3.6_Price(Total) of active attached Products:  <?php echo'$';echo $activeAttachedProductsPrice;?></li></a>
+<a><li>3.7_Summarizing Price Per User:
+	<ul>
+		<?php foreach($pricePerUser as $usr){
+			echo "<li>".ucfirst($usr['firstName']).' '.ucfirst($usr['lastName']).'  =  $'.$usr['price']."</li>";
+		}
+		?>
+		
+	</ul><li>
+</a>
 </ul>
 
 	    

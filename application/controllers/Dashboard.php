@@ -62,10 +62,25 @@ class dashboard extends CI_Controller {
         $result=$query->get();
         $result=$result->row();
         $activeAttachedProductsPrice=$result->price;
+
+        /**3.7_Summarizing price of all active products per User */
+        $query= $this->db->select('t1.firstName');
+        $query= $this->db->select('t1.lastName');
+        $query= $this->db->select('SUM(t2.price*t2.quantity)  price' );
+        $query= $this->db->from('tblusers t1');
+        $query= $this->db->join('tbluser_products t2', 't2.user_id = t1.id', 'left');
+        $query= $this->db->join('tblproducts t3', 't2.product_id = t3.id', 'left');
+        $query= $this->db->where('t3.status', 1);
+        $query= $this->db->where('t2.product_id !=', null);
+        $query= $this->db->group_by('t1.id');
+        $query=$this->db->get();
+        $pricePerUser=$query->result_array();
+        // echo'<pre>';print_R($result);die('..');
         
         $this->load->view('dashboard',['firstname'=>$userfname,'activeVerifiedUserCount'=> $activeVerifiedUserCount,'activeProductCount' =>$activeProductCount,
         'activeUnattachedProducts'=>$activeUnattachedProducts,'activeVerifiedUserHaveActiveProducts'=>$activeVerifiedUserHaveActiveProducts,
-        'activeAttachedProductsAmount'=>$activeAttachedProductsAmount,'activeAttachedProductsPrice'=>$activeAttachedProductsPrice]);
+        'activeAttachedProductsAmount'=>$activeAttachedProductsAmount,'activeAttachedProductsPrice'=>$activeAttachedProductsPrice,
+        'pricePerUser'=>$pricePerUser]);
     }
 
 }
