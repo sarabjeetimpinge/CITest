@@ -55,14 +55,14 @@ class dashboard extends CI_Controller {
         $activeAttachedProductsAmount=$result->amount;
 
         /**3.6) Price of all active attached products (from User Product list) */
-        $query= $this->db->select('SUM(t2.price)  price' );
+        $query= $this->db->select('SUM(t2.price*t2.quantity)  price' );
         $query= $this->db->from('tblproducts t1');
         $query= $this->db->join('tbluser_products t2', 't2.product_id = t1.id', 'inner');
         $query= $this->db->where('t1.status', 1);
         $result=$query->get();
         $result=$result->row();
         $activeAttachedProductsPrice=$result->price;
-       
+        
         $this->load->view('dashboard',['firstname'=>$userfname,'activeVerifiedUserCount'=> $activeVerifiedUserCount,'activeProductCount' =>$activeProductCount,
         'activeUnattachedProducts'=>$activeUnattachedProducts,'activeVerifiedUserHaveActiveProducts'=>$activeVerifiedUserHaveActiveProducts,
         'activeAttachedProductsAmount'=>$activeAttachedProductsAmount,'activeAttachedProductsPrice'=>$activeAttachedProductsPrice]);
