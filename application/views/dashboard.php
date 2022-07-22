@@ -113,6 +113,7 @@ Hello, <?php echo ucfirst($firstname)?>
 <!-- <a><li>Active User Count :  <?php //echo $activeUserCount?></li></a> -->
 <a><li>Active Products Count :  <?php echo $activeProductCount?></li></a>
 <a><li>Active Products Count (not belongs to any user) :  <?php echo $activeUnattachedProducts?></li></a>
+<a><li>Active and verified User Count that have Active Products:  <?php echo $activeVerifiedUserHaveActiveProducts?></li></a>
 </ul>
 
 	    
