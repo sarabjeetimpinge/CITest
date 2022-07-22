@@ -28,7 +28,7 @@ body {
 	border-radius: 3px;
 }
 .signup-form {
-	width: 450px;
+	width: 600px;
 	margin: 0 auto;
 	padding: 30px 0;
   	font-size: 15px;
@@ -109,12 +109,12 @@ body {
 Hello, <?php echo ucfirst($firstname)?> 
 </div>
 <ul>
-<a><li>Active and Verified User Count :  <?php echo $activeVerifiedUserCount?></li></a>
-<!-- <a><li>Active User Count :  <?php //echo $activeUserCount?></li></a> -->
-<a><li>Active Products Count :  <?php echo $activeProductCount;?></li></a>
-<a><li>Active Products Count (not belongs to any user) :  <?php echo $activeUnattachedProducts;?></li></a>
-<a><li>Active and verified User Count that have Active Products:  <?php echo $activeVerifiedUserHaveActiveProducts;?></li></a>
-<a><li>Amount of active attached Products:  <?php echo $activeAttachedProductsAmount;?></li></a>
+<a><li>3.1_Active and Verified User Count :  <?php echo $activeVerifiedUserCount?></li></a>
+<a><li>3.2_Active and verified User Count that have Active Products:  <?php echo $activeVerifiedUserHaveActiveProducts;?></li></a>
+<a><li>3.3_Active Products Count :  <?php echo $activeProductCount;?></li></a>
+<a><li>3.4_Active Products Count (not belongs to any user) :  <?php echo $activeUnattachedProducts;?></li></a>
+<a><li>3.5_Amount of active attached Products:  <?php echo $activeAttachedProductsAmount;?></li></a>
+<a><li>3.6_Price(Total) of active attached Products:  <?php echo'$';echo $activeAttachedProductsPrice;?></li></a>
 </ul>
 
 	    
