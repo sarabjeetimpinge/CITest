@@ -41,6 +41,7 @@ class dashboard extends CI_Controller {
         $query= $this->db->where('t1.is_verified', 1);
         $query= $this->db->where('t3.status', 1);
         $query= $this->db->where('t2.user_id !=', null);
+        $query= $this->db->group_by('t2.user_id');
         $result=$query->get();
         $activeVerifiedUserHaveActiveProducts=$result->num_rows();
        
