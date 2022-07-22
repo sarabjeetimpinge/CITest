@@ -132,6 +132,34 @@ Hello, <?php echo ucfirst($firstname)?>
 </div>
  </form>
  
+ 
+<div class="signup-form">
+<h2>Exchange Rate API</h2>
+		<?php echo form_open('Exchange',['name'=>'exchangeRate','autocomplete'=>'off']);?>
+ 
+        <div class="form-group">
+<!--error message -->
+<?php if($this->session->flashdata('error')){?>
+<p style="color:red"><?php  echo $this->session->flashdata('error');?></p>	
+<?php } ?>
+ 
+		<?php echo form_input(['name'=>'amount','class'=>'form-control','value'=>set_value('amount'),'placeholder'=>'Amount']);?>
+ 		<?php echo form_error('amount',"<div style='color:red'>","</div>");?>       	
+        </div>
+		<div class="form-group">
+			<?php echo form_input(['name'=>'from','class'=>'form-control','value'=>set_value('from'),'placeholder'=>'Convert From']);?>
+			<?php echo form_error('from',"<div style='color:red'>","</div>");?>  
+ 		</div>
+		 <div class="form-group">
+			<?php echo form_input(['name'=>'to','class'=>'form-control','value'=>set_value('to'),'placeholder'=>'Convert To']);?>
+			<?php echo form_error('to',"<div style='color:red'>","</div>");?>  
+ 		</div>
+	   <div class="form-group">
+		<?php echo form_submit(['name'=>'exhange_rate','value'=>'Convert','class'=>'btn btn-success btn-lg btn-block']);?>
+        </div>
+    </form>
+    <?php echo form_close();?>
+</div>
 </div>
 </body>
 </html>
